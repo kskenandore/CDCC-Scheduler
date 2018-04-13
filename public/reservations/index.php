@@ -1,3 +1,55 @@
-<?php
+<?php require_once('../../private/initialize.php'); ?>
 
-?>
+<?php $page_title = 'Reservations'; ?>
+<?php include('../../private/shared/header.php'); ?>
+
+    <div id="content" class="clear">
+        <h2><?php echo $page_title; ?></h2>
+        <a href="new.php" class="button">+ New</a>
+        <input type="search" placeholder="search..." name="search"/>
+
+        <table class="clear">
+            <tr>
+                <th>Primary Key</th>
+                <th>Attribute</th>
+                <th>Attribute</th>
+                <th>Attribute</th>
+                <th>Attribute</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td><a href="edit.php" class="button">Edit</a> <a href="cancel.php" class="button">Cancel</a></td>
+            </tr>
+            <tr>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td><a href="edit.php" class="button">Edit</a> <a href="cancel.php" class="button">Cancel</a></td>
+            </tr>
+            <tr>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td><a href="edit.php" class="button">Edit</a> <a href="cancel.php" class="button">Cancel</a></td>
+            </tr>
+            <tr>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td>Example Data</td>
+                <td><a href="edit.php" class="button">Edit</a> <a href="cancel.php" class="button">Cancel</a></td>
+            </tr>
+        </table>
+    </div>
+
+<?php include('../../private/shared/footer.php'); ?>
