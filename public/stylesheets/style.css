@@ -1,0 +1,265 @@
+/*********************************
+ COLOR SCHEME RGBS
+
+ dark gray: rgb(35, 35, 35)
+ medium gray: rgb(155, 155, 155)
+ light gray: rgb(211, 211, 211)
+
+ blue: rgb(137, 213, 255)
+ green: rgb(134, 252, 123)
+ purple: rgb(210, 127, 255)
+ orange: rgb(255, 170, 91)
+ red: rgb(255, 93, 91)
+**********************************/
+
+
+/*****************
+ GENERAL PAGE STYLES
+******************/
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont,
+    “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
+    “Fira Sans”, “Droid Sans”, “Helvetica Neue”,
+    sans-serif;
+    color: rgb(35, 35, 35);
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0;
+}
+#content{
+    width: 90%;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+
+/*****************
+ LOGIN PAGE STYLES
+******************/
+
+#login{
+    /*background: url('../images/CDCC-logo.png') no-repeat left top;
+    background-size: contain;*/
+    height: 50px;
+}
+#login h1{
+    margin-left: 50px;
+    padding: 0;
+    padding-top: 30px;
+}
+#divider{
+    background-color: rgb(137, 213, 255);
+    width: 100%;
+    height: 40px;
+}
+#divider h2{
+    margin-left: 50px;
+    font-weight: 100;
+    padding-top: 5px;
+}
+
+
+/*****************
+ FORM PAGE STYLES
+******************/
+
+form{
+    width: 320px;
+}
+input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+input[type=submit]{
+    background: rgb(211, 211, 211);
+    color: rgb(35, 35, 35);
+    margin-bottom: 7px;
+}
+input[type=submit]:hover{
+    background: rgb(230, 230, 230);
+}
+select{
+    width: 100%;
+    margin-bottom: 20px;
+}
+textarea{
+    width: 100%;
+}
+#forgot{
+    text-decoration: none;
+    font-size: 0.9em;
+    color: rgb(155, 155, 155);
+    font-weight: 100;
+}
+#forgot:hover{
+    text-decoration: underline;
+    color: rgb(137, 213, 255);
+}
+.new-redirect{
+    position: relative;
+    top: -10px;
+    text-decoration: none;
+    color: rgb(155, 155, 155);
+    font-size: 0.9em;
+    padding-bottom: 10px;
+}
+.new-redirect:hover{
+    text-decoration: underline;
+    color:rgb(137, 213, 255);
+}
+.cancel-btn{
+    display: inline-block;
+    margin-top: 10px;
+    color:rgb(137, 213, 255);
+    text-decoration: none;
+}
+.cancel-btn:hover{
+    text-decoration: underline;
+}
+.warn{
+    margin: 0;
+    padding: 5px 0px;
+    color: rgb(155, 155, 155);
+}
+
+/******************
+ NAVIGATION STYLES
+*******************/
+
+nav ul{
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+}
+nav li{
+    display: inline;
+}
+nav a {
+    display: inline-block;
+    width: 15%;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 10px 10px 0px 0px;
+}
+nav a:hover{
+    text-decoration: underline;
+}
+#nav-divider{
+    height: 30px;
+}
+.blue{
+    background-color: rgb(137, 213, 255);
+}
+.green{
+    background-color: rgb(134, 252, 123);
+}
+.purple{
+    background-color: rgb(210, 127, 255);
+}
+.orange{
+    background-color: rgb(255, 170, 91);
+}
+.red{
+    background-color: rgb(255, 93, 91);
+}
+
+/*******************
+ CONTENT PAGE STYLES
+********************/
+
+#head{
+    margin-top: 30px;
+}
+#head h1{
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
+    padding-left: 10px;
+    float: left;
+}
+#content h2{
+    font-weight: 100;
+    float: left;
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+}
+input[type=search]{
+    display: inline-block;
+    width: 200px;
+    height: 25px;
+    margin-left: 5px;
+    background-color: rgb(250,250,250);
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 5px;
+}
+
+.button{
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    background: rgb(211, 211, 211);
+    color: rgb(35, 35, 35);
+    width: 80px;
+    margin-left: 10px;
+    padding: 5px 0px;
+    border: 1px solid rgb(35, 35, 35);
+    border-radius: 5px;
+    margin-top: 5px;
+}
+.button:hover{
+    background: rgb(230, 230, 230);
+    text-decoration: underline;
+}
+
+table{
+    width:100%;
+    border-radius: 10px;
+    border: 1px solid rgb(155, 155, 155);
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 20px;
+}
+tr:nth-child(even){
+    background-color: rgb(240, 240, 240);
+}
+td{
+    padding: 2px 0px;
+    border-right: 1px solid rgb(225, 225, 225);
+}
+td:last-child{
+    border: none;
+}
+
+.clear{
+    clear: both;
+}
+
+/*******************
+ CONTENT PAGE STYLES
+********************/
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 20px;
+}
+footer p{
+    color: rgb(211, 211, 211);
+    font-style: italic;
+    text-align: right;
+    font-size: 0.8em;
+    padding: 0;
+    margin: 0;
+    padding-right: 20px;
+}
+hr{
+    margin-bottom: 10px;
+}
