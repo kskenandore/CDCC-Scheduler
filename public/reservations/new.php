@@ -8,6 +8,18 @@
     <form class="clear">
         <label for="customer">Customer: </label>
         <select name="customer">
+          <?php
+            // SQL to retrieve database records with formatted date result
+          	$sql = "SELECT first_name, last_name FROM customers order by last_name";
+
+          	// Execute SQL and save result
+          	$result = mysqli_query($dbc, $sql);
+
+            // Loop through each row returned by datbase
+          	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+              echo '<option>' . $row['last_name'] . ', ' . $row['first_name'] . '</option>';
+            }
+          ?>
             <option>Existing Customer</option>
             <option>Existing Customer</option>
         </select>
