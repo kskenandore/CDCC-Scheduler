@@ -10,14 +10,14 @@
         <select name="customer">
           <?php
             // SQL to retrieve database records with formatted date result
-          	$sql = "SELECT first_name, last_name FROM customers order by last_name";
+          	$sql = "SELECT customer_id, first_name, last_name FROM customers order by last_name";
 
           	// Execute SQL and save result
           	$result = mysqli_query($dbc, $sql);
 
             // Loop through each row returned by datbase
           	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-              echo '<option>' . $row['last_name'] . ', ' . $row['first_name'] . '</option>';
+              echo '<option value="' . $row['customer_id'] . '">' . $row['last_name'] . ', ' . $row['first_name'] . '</option>';
             }
           ?>
             <option>Existing Customer</option>
@@ -38,14 +38,14 @@
         <select name="venue">
           <?php
             // SQL to retrieve database records with formatted date result
-          	$sql = "SELECT name FROM venues order by name";
+          	$sql = "SELECT venue_id, name FROM venues order by name";
 
           	// Execute SQL and save result
           	$result = mysqli_query($dbc, $sql);
 
             // Loop through each row returned by datbase
           	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-              echo '<option>' . $row['name'] . '</option>';
+              echo '<option value="' . $row['venue_id'] . '">' . $row['name'] . '</option>';
             }
           ?>
         </select>
