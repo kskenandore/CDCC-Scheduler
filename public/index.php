@@ -4,7 +4,7 @@
 <?php include('../private/shared/login_header.php'); ?>
 
 <div id="content">
-    <form>
+    <form action="reservations/index.php" method="post">
         <label for="username">Username: </label>
         <input type="text" name="username"/><br/>
 
