@@ -24,9 +24,18 @@
 
         <label for="venue">Available Venues: </label>
         <select name="venue">
-            <option>Venue 1</option>
-            <option>Venue 2</option>
-            <option>Venue 3</option>
+          <?php
+            // SQL to retrieve database records with formatted date result
+          	$sql = "SELECT name FROM venues order by name";
+
+          	// Execute SQL and save result
+          	$result = mysqli_query($dbc, $sql);
+
+            // Loop through each row returned by datbase
+          	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+              echo '<option>' . $row['name'] . '</option>';
+            }
+          ?>
         </select>
 
         <label for="caterer">Caterer: </label>
