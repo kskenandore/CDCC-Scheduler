@@ -97,7 +97,14 @@
              ?>
 
             <label for="state">State: </label>
-            <input type="text" name="state"/>
+            <input type="text" name="state" value="<?php
+        				echo "$state";
+      			?>"/><?php
+              /* Determine if field needed */
+      				if ($_POST['state'] == NULL && !$firstpageload) {
+      					echo "* State Required";
+      				}
+             ?>
 
             <label for="zipcode">Zipcode: </label>
             <input type="text" name="zipcode"/>
