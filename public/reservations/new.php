@@ -13,9 +13,12 @@
 	$fieldsfilled = false;
 	$firstpageload = empty($_POST);
 
+  // Create arrays for processing conditions on data elements
+	$rlist = array('customer', 'date', 'start-time', 'end-time', 'venue', 'caterer', 'menu', 'contract');
+
 	/* Determine page state and if any required fields are empty */
 	if ( !$firstpageload ) {
-		foreach ( $vlist as $vval ) {
+		foreach ( $rlist as $vval ) {
 			if ( $_POST[$vval] == NULL ) {
 				$fieldsfilled = false;
 				break;
@@ -29,7 +32,16 @@
 
 <div id="content" class="clear">
     <h2>New Reservation</h2>
-    <form class="clear">
+    <form id="fcform" class="clear" action=<?php
+      /* Determine if form is good to proceed to confirmation page */
+    	if ( $firstpageload || !$fieldsfilled ) {
+    		echo '"new.php "';
+    	} else {
+    		echo '"newhandle.php "';
+    		$autosubmit = false;
+  	  }
+    ?>
+    method="post">
         <label for="customer">Customer: </label>
         <select name="customer">
           <?php
