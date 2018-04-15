@@ -12,18 +12,27 @@
   /* Set logic handling variables named to improve readability */
 	$fieldsfilled = false;
 	$firstpageload = empty($_POST);
+  if (
+    $_POST['customer'] != "Select Customer" &&
+    $_POST['venue'] != "Select Venue" ) {
+
+      $ddsfilled = true;
+    } else {
+      $ddsfilled = false;
+    }
+
 
   // Create arrays for processing conditions on data elements
-	$rlist = array('customer', 'date', 'start-time', 'end-time', 'venue', 'caterer', 'menu', 'contract');
+	$rlist = array('customer', 'date', 'start-time', 'end-time', 'venue');
 
-  // Create code friendly handles for each of the form data elements
+  // Create code friendly handles for select form data elements
   $date = $_POST['date'];
   $starttime = $_POST['start-time'];
   $endtime = $_POST['end-time'];
 
 
 	/* Determine page state and if any required fields are empty */
-	if ( !$firstpageload ) {
+	if ( !$firstpageload && $ddsfilled) {
 		foreach ( $rlist as $vval ) {
 			if ( $_POST[$vval] == NULL ) {
 				$fieldsfilled = false;
@@ -44,7 +53,7 @@
     		echo '"new.php "';
     	} else {
     		echo '"newhandle.php "';
-    		$autosubmit = false;
+    		$autosubmit = true;
   	  }
     ?>
     method="post">
@@ -144,6 +153,8 @@
 
         ?>
 
+        <!--  Commenting out for now, not required basic functionality
+
         <label for="caterer">Caterer: </label>
         <select name="caterer">
             <option>Caterer 1</option>
@@ -161,8 +172,15 @@
         <label for="contract">Contract: </label>
         <input type="file" name="contract" size="50"/>
 
+      -->
+
         <input type="submit" value="Create New Reservation"/>
     </form>
+
+    <?php if ($autosubmit) {
+            //Submit form if all required fields are filled out
+        echo"<script>document.getElementById('fcform').submit();</script> ";
+    } ?>
 
     <a href="index.php" class="cancel-btn">&#8592; Cancel</a>
 </div>
