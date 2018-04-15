@@ -107,7 +107,14 @@
              ?>
 
             <label for="zipcode">Zipcode: </label>
-            <input type="text" name="zipcode"/>
+            <input type="text" name="zipcode" value="<?php
+        				echo "$zip";
+      			?>"/><?php
+              /* Determine if field needed */
+      				if ($_POST['zipcode'] == NULL && !$firstpageload) {
+      					echo "* Zipcode Required";
+      				}
+             ?>
 
             <label for="phone">Phone: </label>
             <input type="tel" name="phone"/>
