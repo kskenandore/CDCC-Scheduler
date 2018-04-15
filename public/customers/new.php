@@ -13,6 +13,9 @@
 	$fieldsfilled = false;
 	$firstpageload = empty($_POST);
 
+  // Create arrays for processing conditions on data elements
+	$rlist = array('fname', 'lname', 'address1', 'city', 'state', 'zipcode', 'phone', 'email');
+
   // Create code friendly handles for select form data elements
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
@@ -24,6 +27,18 @@
   $phone = $_POST['phone'];
   $email = $_POST['email'];
 
+  /* Determine page state and if any required fields are empty */
+	if ( !$firstpageload ) {
+		foreach ( $rlist as $vval ) {
+			if ( $_POST[$vval] == NULL ) {
+				$fieldsfilled = false;
+				break;
+			} else {
+				$fieldsfilled = true;
+			}
+		}
+	}
+
 ?>
 
     <div id="content" class="clear">
@@ -34,7 +49,7 @@
         		echo '"new.php "';
         	} else {
         		echo '"newhandle.php "';
-        		$autosubmit = false;
+        		$autosubmit = true;
       	  }
         ?>
         method="post">
@@ -152,7 +167,7 @@
 
             <label for="org">Organization: </label>
             <select name="org">
-                <option>None</option>
+                <option value="NULL">None</option>
                 <?php
                   // SQL to retrieve database records with formatted date result
                   $sql = "SELECT org_id, name FROM organizations order by name";
@@ -173,6 +188,11 @@
 
             <input type="submit" value="Create New Customer"/>
         </form>
+
+        <?php if ($autosubmit) {
+                //Submit form if all required fields are filled out
+            echo"<script>document.getElementById('fcform').submit();</script> ";
+        } ?>
 
         <a href="index.php" class="cancel-btn">&#8592; Cancel</a>
     </div>
