@@ -19,8 +19,9 @@
     if ($updaterequest && !($_SERVER['REQUEST_METHOD'] === 'POST')) {
 
   		// SQL to retrieve database record
-  		$sql = "SELECT reservation_id, customer_id, venue_id, start_timestamp, end_timestamp
-       FROM reservations WHERE reservation_id = $updateid";
+  		$sql = "SELECT reservation_id, customer_id, venue_id, date_format(start_timestamp, \"%H:%i\") starttime, end_timestamp,
+        date_format(start_timestamp, \"%Y-%m-%d\") rdate
+        FROM reservations WHERE reservation_id = $updateid";
 
   		// Execute SQL and save result
   		$result = mysqli_query($dbc, $sql);
@@ -32,6 +33,7 @@
   		$venue_id = $row['2'];
   		$start_timestamp = $row['3'];
       $end_timestamp = $row['4'];
+      $rdate = $row['5'];
 
       //echo $reservation_id . $customer_id . $venue_id . $start_timestamp . $end_timestamp;
 
@@ -60,16 +62,17 @@
               }
             }
           ?>
-
-            <option>Existing Customer</option>
-            <option>Existing Customer</option>
         </select>
 
         <label for="date">Date: </label>
-        <input type="date" name="date"/>
+        <input type="date" name="date" value="<?php
+    				echo "$rdate";
+  			?>"/>
 
         <label for="start-time">Start Time: </label>
-        <input type="time" name="start-time"/>
+        <input type="time" name="start-time" value="<?php
+    				echo "$start_timestamp";
+  			?>"/>
 
         <label for="end-time">End Time: </label>
         <input type="time" name="end-time"/>
