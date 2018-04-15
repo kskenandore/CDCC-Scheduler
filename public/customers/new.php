@@ -19,6 +19,7 @@
   $address1 = $_POST['address1'];
   $address2 = $_POST['address2'];
   $city = $_POST['city'];
+  $state = $_POST['state'];
 
 ?>
 
@@ -96,7 +97,17 @@
              ?>
 
             <label for="state">State: </label>
-            <input type="text" name="state"/>
+            <input type="text" name="state" value="<?php
+              /* Determine if date to keep exists */
+        			if ($_POST['state'] != NULL) {
+        				echo "$state";
+        			}
+      			?>"/><?php
+              /* Determine if field needed */
+      				if ($_POST['state'] == NULL && !$firstpageload) {
+      					echo "* State Required";
+      				}
+             ?>
 
             <label for="zipcode">Zipcode: </label>
             <input type="text" name="zipcode"/>
