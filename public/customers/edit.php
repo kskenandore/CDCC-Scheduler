@@ -87,7 +87,14 @@
       			?>"/>
 
             <label for="city">City: </label>
-            <input type="text" name="city"/>
+            <input type="text" name="city" value="<?php
+        				echo "$city";
+      			?>"/><?php
+              /* Determine if field needed */
+      				if ($_POST['city'] == NULL && !$firstpageload) {
+      					echo "* City Required";
+      				}
+             ?>
 
             <label for="state">State: </label>
             <input type="text" name="state"/>
