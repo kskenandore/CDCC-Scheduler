@@ -22,9 +22,9 @@
   $state = $_POST['state'];
   $zipcode = $_POST['zipcode'];
   $phone = $_POST['phone'];
+  $email = $_POST['email'];
 
 ?>
-
 
     <div id="content" class="clear">
         <h2>New Customer</h2>
@@ -138,7 +138,17 @@
              ?>
 
             <label for="email">Email: </label>
-            <input type="email" name="email"/>
+            <input type="email" name="email" value="<?php
+              /* Determine if date to keep exists */
+        			if ($_POST['email'] != NULL) {
+        				echo "$email";
+        			}
+      			?>"/><?php
+              /* Determine if field needed */
+      				if ($_POST['email'] == NULL && !$firstpageload) {
+      					echo "* Email Required";
+      				}
+             ?>
 
             <label for="org">Organization: </label>
             <select name="org">
@@ -152,7 +162,11 @@
 
                   // Loop through each row returned by datbase
                   while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                    echo '<option value="' . $row['org_id'] . '">' . $row['name'] . '</option>';
+                    if ( $_POST['org'] == $row['org_id'] ) {
+                      echo '<option value="' . $row['org_id'] . '" selected>' . $row['name'] . '</option>';
+                    } else {
+                      echo '<option value="' . $row['org_id'] . '">' . $row['name'] . '</option>';
+                    }
                   }
                 ?>
             </select>
