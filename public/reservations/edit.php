@@ -99,6 +99,7 @@
           ?>
         </select><br/>
 
+        <!-- Comment
         <label for="caterer">Caterer: </label>
         <select name="caterer">
             <option>Caterer 1</option>
@@ -115,6 +116,8 @@
 
         <label for="contract">Contract: </label>
         <input type="file" name="contract" size="50"/>
+
+      -->
 
         <input type="submit" value="Edit this Reservation"/>
     </form>
