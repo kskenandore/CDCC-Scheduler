@@ -16,6 +16,10 @@
   // Create arrays for processing conditions on data elements
 	$rlist = array('customer', 'date', 'start-time', 'end-time', 'venue', 'caterer', 'menu', 'contract');
 
+  // Create code friendly handles for each of the form data elements
+  $date = $_POST['date'];
+
+
 	/* Determine page state and if any required fields are empty */
 	if ( !$firstpageload ) {
 		foreach ( $rlist as $vval ) {
@@ -71,7 +75,17 @@
         <a href="../customers/new.php" class="new-redirect">New Customer?</a>
 
         <label for="date">Date: </label>
-        <input type="date" name="date"/>
+        <input type="date" name="date" value="<?php
+          /* Determine if date to keep exists */
+    			if ($_POST['date'] != NULL) {
+    				echo "$date";
+    			}
+  			?>"/><?php
+          /* Determine if field needed */
+  				if ($_POST['date'] == NULL && !$firstpageload) {
+  					echo "* Date required";
+  				}
+         ?>
 
         <label for="start-time">Start Time: </label>
         <input type="time" name="start-time"/>
