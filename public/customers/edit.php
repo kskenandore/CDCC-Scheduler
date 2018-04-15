@@ -117,7 +117,14 @@
              ?>
 
             <label for="phone">Phone: </label>
-            <input type="tel" name="phone"/>
+            <input type="tel" name="phone" value="<?php
+        				echo "$phone";
+      			?>"/><?php
+              /* Determine if field needed */
+      				if ($_POST['phone'] == NULL && !$firstpageload) {
+      					echo "* Phone Required";
+      				}
+             ?>
 
             <label for="email">Email: </label>
             <input type="email" name="email"/>
