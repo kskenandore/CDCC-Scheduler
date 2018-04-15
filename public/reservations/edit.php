@@ -128,8 +128,16 @@
 
         <label for="end-time">End Time: </label>
         <input type="time" name="end-time" value="<?php
+          /* Determine if date to keep exists */
+    			//if ($_POST['date'] != NULL || ($updaterequest) ) {
     				echo "$end_timestamp";
-  			?>"/>
+    			//}
+  			?>"/><?php
+          /* Determine if field needed */
+  				if ($_POST['end-time'] == NULL && !$firstpageload) {
+  					echo "* End Time Required";
+  				}
+         ?>
 
         <label for="venue">Available Venues: </label>
         <select name="venue">
