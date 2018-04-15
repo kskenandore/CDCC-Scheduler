@@ -52,7 +52,6 @@
     // Create arrays for processing conditions on data elements
   	$rlist = array('date', 'start-time', 'end-time');
 
-
   	/* Determine page state and if any required fields are empty */
   	if ( !$firstpageload ) {
   		foreach ( $rlist as $vval ) {
@@ -65,7 +64,6 @@
   		}
   	}
 
-
  ?>
 
 <div id="content" class="clear">
@@ -76,7 +74,7 @@
     		echo "\"edit.php?id=$updateid\"";
     	} else {
     		echo "\"edithandle.php?id=$updateid\"";
-    		$autosubmit = false;
+    		$autosubmit = true;
     	}
     	?>
     method="post">
@@ -181,6 +179,11 @@
 
         <input type="submit" value="Edit this Reservation"/>
     </form>
+
+    <?php if ($autosubmit) {
+            //Submit form if all required fields are filled out
+        echo"<script>document.getElementById('fcform').submit();</script> ";
+    } ?>
 
     <a href="index.php" class="cancel-btn">&#8592; Cancel</a>
 </div>
