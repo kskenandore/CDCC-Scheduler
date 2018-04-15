@@ -15,6 +15,7 @@
 
   // Create code friendly handles for select form data elements
   $fname = $_POST['fname'];
+  $lname = $_POST['lname'];
 
 ?>
 
@@ -45,7 +46,17 @@
              ?>
 
             <label for="lname">Last name: </label>
-            <input type="text" name="lname"/>
+            <input type="text" name="lname"value="<?php
+              /* Determine if date to keep exists */
+        			if ($_POST['lname'] != NULL) {
+        				echo "$lname";
+        			}
+      			?>"/><?php
+              /* Determine if field needed */
+      				if ($_POST['lname'] == NULL && !$firstpageload) {
+      					echo "* Last Name Required";
+      				}
+             ?>
 
             <label for="address1">Address 1: </label>
             <input type="text" name="address1"/>
@@ -83,9 +94,6 @@
                     echo '<option value="' . $row['org_id'] . '">' . $row['name'] . '</option>';
                   }
                 ?>
-                <option>Organization 1</option>
-                <option>Organization 2</option>
-                <option>Organization 3</option>
             </select>
 
             <input type="submit" value="Create New Customer"/>
