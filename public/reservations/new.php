@@ -44,6 +44,7 @@
     method="post">
         <label for="customer">Customer: </label>
         <select name="customer">
+          <option>Select Customer</option>
           <?php
             // SQL to retrieve database records with formatted date result
           	$sql = "SELECT customer_id, first_name, last_name FROM customers order by last_name";
@@ -53,12 +54,20 @@
 
             // Loop through each row returned by datbase
           	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-              echo '<option value="' . $row['customer_id'] . '">' . $row['last_name'] . ', ' . $row['first_name'] . '</option>';
+              if ( $_POST['customer'] == $row['customer_id'] ) {
+                echo '<option value="' . $row['customer_id'] . '" selected>' . $row['last_name'] . ', ' . $row['first_name'] . '</option>';
+              } else {
+                echo '<option value="' . $row['customer_id'] . '">' . $row['last_name'] . ', ' . $row['first_name'] . '</option>';
+              }
             }
           ?>
-            <option>Existing Customer</option>
-            <option>Existing Customer</option>
-        </select>
+        </select><?php
+          /* Determine if field is not filled */
+          if ( $_POST['customer'] == "Select Customer" ) {
+            echo "* Customer Required";
+          }
+
+        ?>
         <a href="../customers/new.php" class="new-redirect">New Customer?</a>
 
         <label for="date">Date: </label>
