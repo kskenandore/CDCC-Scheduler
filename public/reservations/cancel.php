@@ -5,10 +5,11 @@
 
 <?php
 
-  	// For troubleshooting purposes
+  /*	// For troubleshooting purposes
   	print_r($_POST);
   	print_r($_GET);
   	echo "<br />";
+    */
 
     // Create code friendly handles for select form data elements
 	  $cancelreason = $_POST['cancel-reason'];
@@ -91,7 +92,7 @@
         		echo "\"cancel.php?id=$updateid\"";
         	} else {
         		echo "\"cancelhandle.php?id=$updateid\"";
-        		$autosubmit = false;
+        		$autosubmit = true;
         	}
         	?>
         method="post">
@@ -135,6 +136,12 @@
             <input type="submit" value="Yes, Cancel this Reservation" />
             <a href="index.php" class="cancel-btn">&#8592; Return</a>
         </form>
+
+        <?php if ($autosubmit) {
+                //Submit form if all required fields are filled out
+            echo"<script>document.getElementById('fcform').submit();</script> ";
+        } ?>
+
     </div>
 
 <?php include('../../private/shared/footer.php'); ?>
