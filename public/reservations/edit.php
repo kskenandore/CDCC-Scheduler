@@ -3,6 +3,43 @@
 <?php $page_title = 'Reservations'; ?>
 <?php include('../../private/shared/header.php'); ?>
 
+<?php
+
+  	// For troubleshooting purposes
+  	print_r($_POST);
+  	print_r($_GET);
+  	echo "<br />";
+
+    // Test for update request from GET
+    $updaterequest = !empty($_GET);
+
+	  $updateid = $_GET['id'];
+
+    if ($updaterequest && !($_SERVER['REQUEST_METHOD'] === 'POST')) {
+
+  		// SQL to retrieve database record
+  		$sql = "SELECT reservation_id, customer_id, venue_id, start_timestamp, end_timestamp
+       FROM reservations WHERE reservation_id = $updateid";
+
+  		// Execute SQL and save result
+  		$result = mysqli_query($dbc, $sql);
+
+  		$row = 	mysqli_fetch_row($result);
+
+  		$reservation_id = $row['0'];
+  		$customer_id = $row['1'];
+  		$venue_id = $row['2'];
+  		$start_timestamp = $row['3'];
+      $end_timestamp = $row['4'];
+
+      echo $reservation_id . $customer_id . $venue_id . $start_timestamp . $end_timestamp;
+
+  	}
+
+
+
+ ?>
+
 <div id="content" class="clear">
     <h2>Edit Reservation</h2>
     <form class="clear">
