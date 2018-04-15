@@ -3,6 +3,30 @@
 <?php $page_title = 'Reservations'; ?>
 <?php include('../../private/shared/header.php'); ?>
 
+<?php
+
+	// For troubleshooting purposes
+	print_r($_POST);
+	echo "<br />";
+
+  /* Set logic handling variables named to improve readability */
+	$fieldsfilled = false;
+	$firstpageload = empty($_POST);
+
+	/* Determine page state and if any required fields are empty */
+	if ( !$firstpageload ) {
+		foreach ( $vlist as $vval ) {
+			if ( $_POST[$vval] == NULL ) {
+				$fieldsfilled = false;
+				break;
+			} else {
+				$fieldsfilled = true;
+			}
+		}
+	}
+
+?>
+
 <div id="content" class="clear">
     <h2>New Reservation</h2>
     <form class="clear">
