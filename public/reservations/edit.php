@@ -5,11 +5,17 @@
 
 <?php
 
-  /*	// For troubleshooting purposes
+  	// For troubleshooting purposes
   	print_r($_POST);
   	print_r($_GET);
   	echo "<br />";
- */
+
+    // Create code friendly handles for select form data elements
+    $customer_id = $_POST['customer'];
+    $rdate = $_POST['date'];
+    $start_timestamp = $_POST['start-time'];
+    $end_timestamp = $_POST['end-time'];
+    $venue_id = $_POST['venue'];
 
     // Test for update request from GET
     $updaterequest = !empty($_GET);
@@ -39,11 +45,41 @@
 
   	}
 
+    /* Set logic handling variables named to improve readability */
+  	$fieldsfilled = false;
+  	$firstpageload = empty($_POST);
+
+    // Create arrays for processing conditions on data elements
+  	$rlist = array('date', 'start-time', 'end-time');
+
+
+  	/* Determine page state and if any required fields are empty */
+  	if ( !$firstpageload ) {
+  		foreach ( $rlist as $vval ) {
+  			if ( $_POST[$vval] == NULL ) {
+  				$fieldsfilled = false;
+  				break;
+  			} else {
+  				$fieldsfilled = true;
+  			}
+  		}
+  	}
+
+
  ?>
 
 <div id="content" class="clear">
     <h2>Edit Reservation</h2>
-    <form class="clear">
+    <form class="clear" id="fcform" action=<?php
+    	/* Determine if form is good to proceed to confirmation page */
+    	if ( $firstpageload || !$fieldsfilled ) {
+    		echo "\"edit.php?id=$updateid\"";
+    	} else {
+    		echo "\"edithandle.php?id=$updateid\"";
+    		$autosubmit = false;
+    	}
+    	?>
+    method="post">
         <label for="customer">Customer: </label>
         <select name="customer">
           <?php
@@ -66,8 +102,16 @@
 
         <label for="date">Date: </label>
         <input type="date" name="date" value="<?php
+          /* Determine if date to keep exists */
+    			//if ($_POST['date'] != NULL || ($updaterequest) ) {
     				echo "$rdate";
-  			?>"/>
+    			//}
+  			?>"/><?php
+          /* Determine if field needed */
+  				if ($_POST['date'] == NULL && !$firstpageload) {
+  					echo "* Date required";
+  				}
+         ?>
 
         <label for="start-time">Start Time: </label>
         <input type="time" name="start-time" value="<?php
