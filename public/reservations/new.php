@@ -118,6 +118,7 @@
 
         <label for="venue">Available Venues: </label>
         <select name="venue">
+          <option>Select Venue</option>
           <?php
             // SQL to retrieve database records with formatted date result
           	$sql = "SELECT venue_id, name FROM venues order by name";
@@ -126,11 +127,22 @@
           	$result = mysqli_query($dbc, $sql);
 
             // Loop through each row returned by datbase
-          	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-              echo '<option value="' . $row['venue_id'] . '">' . $row['name'] . '</option>';
+            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+              if ( $_POST['venue'] == $row['venue_id'] ) {
+                echo '<option value="' . $row['venue_id'] . '" selected>' . $row['name'] . '</option>';
+              } else {
+                echo '<option value="' . $row['venue_id'] . '">' . $row['name'] . '</option>';
+              }
             }
+
           ?>
-        </select>
+        </select><?php
+          /* Determine if field is not filled */
+          if ( $_POST['venue'] == "Select Venue" ) {
+            echo "* Venue Required";
+          }
+
+        ?>
 
         <label for="caterer">Caterer: </label>
         <select name="caterer">
