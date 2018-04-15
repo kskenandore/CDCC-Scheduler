@@ -21,7 +21,7 @@
   $city = $_POST['city'];
   $state = $_POST['state'];
   $zipcode = $_POST['zipcode'];
-
+  $phone = $_POST['phone'];
 
 ?>
 
@@ -125,7 +125,17 @@
              ?>
 
             <label for="phone">Phone: </label>
-            <input type="tel" name="phone"/>
+            <input type="tel" name="phone" value="<?php
+              /* Determine if date to keep exists */
+        			if ($_POST['phone'] != NULL) {
+        				echo "$phone";
+        			}
+      			?>"/><?php
+              /* Determine if field needed */
+      				if ($_POST['phone'] == NULL && !$firstpageload) {
+      					echo "* Phone Required";
+      				}
+             ?>
 
             <label for="email">Email: </label>
             <input type="email" name="email"/>
