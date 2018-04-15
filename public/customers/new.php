@@ -20,6 +20,8 @@
   $address2 = $_POST['address2'];
   $city = $_POST['city'];
   $state = $_POST['state'];
+  $zipcode = $_POST['zipcode'];
+
 
 ?>
 
@@ -110,7 +112,17 @@
              ?>
 
             <label for="zipcode">Zipcode: </label>
-            <input type="text" name="zipcode"/>
+            <input type="text" name="zipcode" value="<?php
+              /* Determine if date to keep exists */
+        			if ($_POST['zipcode'] != NULL) {
+        				echo "$zipcode";
+        			}
+      			?>"/><?php
+              /* Determine if field needed */
+      				if ($_POST['zipcode'] == NULL && !$firstpageload) {
+      					echo "* Zip Code Required";
+      				}
+             ?>
 
             <label for="phone">Phone: </label>
             <input type="tel" name="phone"/>
