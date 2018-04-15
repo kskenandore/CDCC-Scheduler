@@ -19,8 +19,8 @@
     if ($updaterequest && !($_SERVER['REQUEST_METHOD'] === 'POST')) {
 
   		// SQL to retrieve database record
-  		$sql = "SELECT reservation_id, customer_id, venue_id, date_format(start_timestamp, \"%H:%i\") starttime, end_timestamp,
-        date_format(start_timestamp, \"%Y-%m-%d\") rdate
+  		$sql = "SELECT reservation_id, customer_id, venue_id, date_format(start_timestamp, \"%H:%i\") starttime,
+       date_format(end_timestamp, \"%H:%i\") endtime, date_format(start_timestamp, \"%Y-%m-%d\") rdate
         FROM reservations WHERE reservation_id = $updateid";
 
   		// Execute SQL and save result
@@ -75,7 +75,9 @@
   			?>"/>
 
         <label for="end-time">End Time: </label>
-        <input type="time" name="end-time"/>
+        <input type="time" name="end-time" value="<?php
+    				echo "$end_timestamp";
+  			?>"/>
 
         <label for="venue">Available Venues: </label>
         <select name="venue">
