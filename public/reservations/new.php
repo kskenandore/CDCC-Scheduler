@@ -19,6 +19,7 @@
   // Create code friendly handles for each of the form data elements
   $date = $_POST['date'];
   $starttime = $_POST['start-time'];
+  $endtime = $_POST['end-time'];
 
 
 	/* Determine page state and if any required fields are empty */
@@ -102,7 +103,18 @@
          ?>
 
         <label for="end-time">End Time: </label>
-        <input type="time" name="end-time"/>
+        <input type="time" name="end-time" value="<?php
+          /* Determine if date to keep exists */
+    			if ($_POST['end-time'] != NULL) {
+    				echo "$endtime";
+    			}
+  			?>"/><?php
+          /* Determine if field needed */
+  				if ($_POST['end-time'] == NULL && !$firstpageload) {
+  					echo "* End time required";
+  				}
+         ?>
+
 
         <label for="venue">Available Venues: </label>
         <select name="venue">
