@@ -3,11 +3,46 @@
 <?php $page_title = 'Customers'; ?>
 <?php include('../../private/shared/header.php'); ?>
 
+<?php
+
+	// For troubleshooting purposes
+	print_r($_POST);
+	echo "<br />";
+
+  /* Set logic handling variables named to improve readability */
+	$fieldsfilled = false;
+	$firstpageload = empty($_POST);
+
+  // Create code friendly handles for select form data elements
+  $fname = $_POST['fname'];
+
+?>
+
+
     <div id="content" class="clear">
         <h2>New Customer</h2>
-        <form class="clear">
+        <form id="fcform" class="clear" action=<?php
+          /* Determine if form is good to proceed to confirmation page */
+        	if ( $firstpageload || !$fieldsfilled ) {
+        		echo '"new.php "';
+        	} else {
+        		echo '"newhandle.php "';
+        		$autosubmit = false;
+      	  }
+        ?>
+        method="post">
             <label for="fname">First name: </label>
-            <input type="text" name="fname"/>
+            <input type="text" name="fname" value="<?php
+              /* Determine if date to keep exists */
+        			if ($_POST['fname'] != NULL) {
+        				echo "$fname";
+        			}
+      			?>"/><?php
+              /* Determine if field needed */
+      				if ($_POST['fname'] == NULL && !$firstpageload) {
+      					echo "* First Name Required";
+      				}
+             ?>
 
             <label for="lname">Last name: </label>
             <input type="text" name="lname"/>
@@ -59,4 +94,4 @@
         <a href="index.php" class="cancel-btn">&#8592; Cancel</a>
     </div>
 
-<?php include('../../private/shared/footer.php'); ?>
+<?php //include('../../private/shared/footer.php'); ?>
