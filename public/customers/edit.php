@@ -127,14 +127,38 @@
              ?>
 
             <label for="email">Email: </label>
-            <input type="email" name="email"/>
+            <input type="email" name="email" value="<?php
+        				echo "$email";
+      			?>"/><?php
+              /* Determine if field needed */
+      				if ($_POST['email'] == NULL && !$firstpageload) {
+      					echo "* Email Required";
+      				}
+             ?>
 
             <label for="org">Organization: </label>
             <select name="org">
-                <option>None</option>
-                <option>Organization 1</option>
-                <option>Organization 2</option>
-                <option>Organization 3</option>
+              <?php
+                // SQL to retrieve database records
+                $sql = "SELECT org_id, name FROM organizations order by name";
+
+                // Execute SQL and save result
+                $result = mysqli_query($dbc, $sql);
+
+                if ( is_null($org_id) ) {
+                  echo '<option selected>None</option>';
+                  $orgnull = true;
+                }
+
+                // Loop through each row returned by database
+                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                  if ( $org_id == $row['org_id'] && !$orgnull) {
+                    echo '<option value="' . $row['org_id'] . '" selected>' . $row['name'] . '</option>';
+                  } else {
+                    echo '<option value="' . $row['org_id'] . '">' . $row['name'] . '</option>';
+                  }
+                }
+              ?>
             </select>
 
             <input type="submit" value="Edit this Customer"/>
