@@ -72,10 +72,19 @@
              ?>
 
             <label for="address1">Address 1: </label>
-            <input type="text" name="address1"/>
+            <input type="text" name="address1" value="<?php
+        				echo "$address1";
+      			?>"/><?php
+              /* Determine if field needed */
+      				if ($_POST['address1'] == NULL && !$firstpageload) {
+      					echo "* Address 1 Required";
+      				}
+             ?>
 
             <label for="address2">Address 2: </label>
-            <input type="text" name="address2"/>
+            <input type="text" name="address2" value="<?php
+        				echo "$address2";
+      			?>"/>
 
             <label for="city">City: </label>
             <input type="text" name="city"/>
