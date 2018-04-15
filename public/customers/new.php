@@ -16,6 +16,9 @@
   // Create code friendly handles for select form data elements
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
+  $address1 = $_POST['address1'];
+  $address2 = $_POST['address2'];
+  $city = $_POST['city'];
 
 ?>
 
@@ -72,10 +75,25 @@
              ?>
 
             <label for="address2">Address 2: </label>
-            <input type="text" name="address2"/>
+            <input type="text" name="address2" value="<?php
+              /* Determine if date to keep exists */
+        			if ($_POST['address2'] != NULL) {
+        				echo "$address2";
+        			}
+      			?>"/>
 
             <label for="city">City: </label>
-            <input type="text" name="city"/>
+            <input type="text" name="city" value="<?php
+              /* Determine if date to keep exists */
+        			if ($_POST['city'] != NULL) {
+        				echo "$city";
+        			}
+      			?>"/><?php
+              /* Determine if field needed */
+      				if ($_POST['city'] == NULL && !$firstpageload) {
+      					echo "* City Required";
+      				}
+             ?>
 
             <label for="state">State: </label>
             <input type="text" name="state"/>
