@@ -38,7 +38,7 @@
                 echo '<td>' . $row['vname'] . '</td>';
                 echo '<td>' . $row['rdate'] . '</td>';
                 echo '<td>' . $row['rtime'] . '</td>';
-                echo '<td><a href="edit.php?id=' . $row['reservation_id'] . '" class="button">Edit</a> <a href="cancel.php" class="button">Cancel</a></td>';
+                echo '<td><a href="edit.php?id=' . $row['reservation_id'] . '" class="button">Edit</a> <a href="cancel.php?id=' . $row['reservation_id'] . '" class="button">Cancel</a></td>';
                 echo '</tr>';
               }
 
