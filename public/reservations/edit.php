@@ -115,8 +115,16 @@
 
         <label for="start-time">Start Time: </label>
         <input type="time" name="start-time" value="<?php
+          /* Determine if date to keep exists */
+    			//if ($_POST['date'] != NULL || ($updaterequest) ) {
     				echo "$start_timestamp";
-  			?>"/>
+    			//}
+  			?>"/><?php
+          /* Determine if field needed */
+  				if ($_POST['start-time'] == NULL && !$firstpageload) {
+  					echo "* Start Time Required";
+  				}
+         ?>
 
         <label for="end-time">End Time: </label>
         <input type="time" name="end-time" value="<?php
