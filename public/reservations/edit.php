@@ -5,10 +5,11 @@
 
 <?php
 
-  	// For troubleshooting purposes
+  /*	// For troubleshooting purposes
   	print_r($_POST);
   	print_r($_GET);
   	echo "<br />";
+ */
 
     // Test for update request from GET
     $updaterequest = !empty($_GET);
@@ -32,11 +33,9 @@
   		$start_timestamp = $row['3'];
       $end_timestamp = $row['4'];
 
-      echo $reservation_id . $customer_id . $venue_id . $start_timestamp . $end_timestamp;
+      //echo $reservation_id . $customer_id . $venue_id . $start_timestamp . $end_timestamp;
 
   	}
-
-
 
  ?>
 
@@ -45,6 +44,23 @@
     <form class="clear">
         <label for="customer">Customer: </label>
         <select name="customer">
+          <?php
+            // SQL to retrieve database records with formatted date result
+            $sql = "SELECT customer_id, first_name, last_name FROM customers order by last_name";
+
+            // Execute SQL and save result
+            $result = mysqli_query($dbc, $sql);
+
+            // Loop through each row returned by datbase
+            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+              if ( $customer_id == $row['customer_id'] ) {
+                echo '<option value="' . $row['customer_id'] . '" selected>' . $row['last_name'] . ', ' . $row['first_name'] . '</option>';
+              } else {
+                echo '<option value="' . $row['customer_id'] . '">' . $row['last_name'] . ', ' . $row['first_name'] . '</option>';
+              }
+            }
+          ?>
+
             <option>Existing Customer</option>
             <option>Existing Customer</option>
         </select>
