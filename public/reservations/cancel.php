@@ -10,10 +10,38 @@
   	print_r($_GET);
   	echo "<br />";
 
+    // Create code friendly handles for select form data elements
+	  $cancelreason = $_POST['cancel-reason'];
+
     // Test for update request from GET
     $updaterequest = !empty($_GET);
 
 	  $updateid = $_GET['id'];
+
+    /* Set logic handling variables named to improve readability */
+  	$fieldsfilled = false;
+  	$firstpageload = empty($_POST);
+
+    if ( $_POST['cancel-reason'] != "Select Reason" ) {
+        $ddsfilled = true;
+      } else {
+        $ddsfilled = false;
+      }
+
+    // Create arrays for processing conditions on data elements
+  	$rlist = array('cancel-reason');
+
+    /* Determine page state and if any required fields are empty */
+  	if ( !$firstpageload && $ddsfilled) {
+  		foreach ( $rlist as $vval ) {
+  			if ( $_POST[$vval] == NULL ) {
+  				$fieldsfilled = false;
+  				break;
+  			} else {
+  				$fieldsfilled = true;
+  			}
+  		}
+  	}
 
 ?>
 
@@ -57,7 +85,16 @@
 
         </table>
 
-        <form class="clear">
+        <form class="clear" id="fcform" action=<?php
+        	/* Determine if form is good to proceed to confirmation page */
+        	if ( $firstpageload || !$fieldsfilled ) {
+        		echo "\"cancel.php?id=$updateid\"";
+        	} else {
+        		echo "\"cancelhandle.php?id=$updateid\"";
+        		$autosubmit = false;
+        	}
+        	?>
+        method="post">
             <label for="cancel-reason">Reason for Cancellation: </label>
             <select name="cancel-reason">
               <option>Select Reason</option>
@@ -84,17 +121,19 @@
                 echo "* Reason Required";
               }
             ?>
-            
+
             </select><br/>
 
+            <!-- comment out for base requirements
             <label for="description">Cancellation Description: </label>
             <textarea name="description" rows="5">Optional Description</textarea>
+          -->
 
-            <p class="warn">Once this information has been deleted, it cannot be retrieved.</p>
+            <p class="warn">Once this reservation has been canceled, it cannot be retrieved.</p>
             <p class="warn">Are you sure you want to continue?</p>
 
             <input type="submit" value="Yes, Cancel this Reservation" />
-            <a href="index.php" class="cancel-btn">&#8592; Cancel</a>
+            <a href="index.php" class="cancel-btn">&#8592; Return</a>
         </form>
     </div>
 
