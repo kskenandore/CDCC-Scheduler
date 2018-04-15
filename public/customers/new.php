@@ -36,6 +36,18 @@
             <label for="org">Organization: </label>
             <select name="org">
                 <option>None</option>
+                <?php
+                  // SQL to retrieve database records with formatted date result
+                  $sql = "SELECT org_id, name FROM organizations order by name";
+
+                  // Execute SQL and save result
+                  $result = mysqli_query($dbc, $sql);
+
+                  // Loop through each row returned by datbase
+                  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    echo '<option value="' . $row['org_id'] . '">' . $row['name'] . '</option>';
+                  }
+                ?>
                 <option>Organization 1</option>
                 <option>Organization 2</option>
                 <option>Organization 3</option>
