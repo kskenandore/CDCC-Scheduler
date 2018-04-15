@@ -10,6 +10,17 @@
   	print_r($_GET);
   	echo "<br />";
 
+    // Create code friendly handles for select form data elements
+    $first_name = $_POST['fname'];
+    $last_name = $_POST['lname'];
+    $address1 = $_POST['address1'];
+    $address2 = $_POST['address2'];
+    $city = $_POST['city'];
+    $state = $_POST['state'];
+    $zip = $_POST['zipcode'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+
     // Test for update request from GET
     $updaterequest = !empty($_GET);
 
@@ -45,12 +56,36 @@
   	$fieldsfilled = false;
   	$firstpageload = empty($_POST);
 
+    // Create arrays for processing conditions on data elements
+  	$rlist = array('fname', 'lname', 'address1', 'city', 'state', 'zipcode', 'phone', 'email');
+
+  	/* Determine page state and if any required fields are empty */
+  	if ( !$firstpageload ) {
+  		foreach ( $rlist as $vval ) {
+  			if ( $_POST[$vval] == NULL ) {
+  				$fieldsfilled = false;
+  				break;
+  			} else {
+  				$fieldsfilled = true;
+  			}
+  		}
+  	}
+
 
 ?>
 
     <div id="content" class="clear">
         <h2>Edit Customer</h2>
-        <form class="clear">
+        <form class="clear" id="fcform" action=<?php
+        	/* Determine if form is good to proceed to confirmation page */
+        	if ( $firstpageload || !$fieldsfilled ) {
+        		echo "\"edit.php?id=$updateid\"";
+        	} else {
+        		echo "\"edithandle.php?id=$updateid\"";
+        		$autosubmit = true;
+        	}
+        	?>
+        method="post">
             <label for="fname">First name: </label>
             <input type="text" name="fname" value="<?php
         				echo "$first_name";
@@ -146,8 +181,11 @@
                 $result = mysqli_query($dbc, $sql);
 
                 if ( is_null($org_id) ) {
-                  echo '<option selected>None</option>';
+                  echo '<option value="NULL" selected>None</option>';
                   $orgnull = true;
+                } else {
+                  echo '<option value="NULL">None</option>';
+                  $orgnull = false;
                 }
 
                 // Loop through each row returned by database
@@ -163,6 +201,11 @@
 
             <input type="submit" value="Edit this Customer"/>
         </form>
+
+        <?php if ($autosubmit) {
+                //Submit form if all required fields are filled out
+            echo"<script>document.getElementById('fcform').submit();</script> ";
+        } ?>
 
         <a href="index.php" class="cancel-btn">&#8592; Cancel</a>
     </div>
