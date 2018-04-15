@@ -5,10 +5,11 @@
 
 <?php
 
-  	// For troubleshooting purposes
+  /*	// For troubleshooting purposes
   	print_r($_POST);
   	print_r($_GET);
   	echo "<br />";
+    */
 
     // Create code friendly handles for select form data elements
     $customer_id = $_POST['customer'];
