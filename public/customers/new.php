@@ -5,10 +5,12 @@
 
 <?php
 
-	// For troubleshooting purposes
+/*	// For troubleshooting purposes
 	print_r($_POST);
 	echo "<br />";
+ */
 
+ 
   /* Set logic handling variables named to improve readability */
 	$fieldsfilled = false;
 	$firstpageload = empty($_POST);
