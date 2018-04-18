@@ -86,7 +86,7 @@
         ?>
         <a href="../customers/new.php" class="new-redirect">New Customer?</a>
 
-        <label for="date">Date: </label>
+        <br/><label for="date">Date: </label>
         <input type="date" name="date" value="<?php
           /* Determine if date to keep exists */
     			if ($_POST['date'] != NULL) {

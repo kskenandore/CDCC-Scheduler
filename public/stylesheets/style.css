@@ -132,7 +132,8 @@ nav ul{
     overflow: hidden;
     margin: 0;
     padding: 0;
-    padding-left: 10px;
+    padding-left: 20px;
+    padding-top: 45px;
 }
 nav li{
     display: inline;
@@ -174,13 +175,19 @@ nav a:hover{
 
 #head{
     margin-top: 30px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    padding: 5px 0px;
+    height: 35px;
+    background: url("../images/CDCC-logo.png") no-repeat top left;
+    background-size: contain;
+    float: left;
 }
 #head h1{
     font-size: 2em;
     padding: 0;
     margin: 0;
-    padding-left: 10px;
-    float: left;
+    padding-left: 80px;
 }
 #content h2{
     font-weight: 100;

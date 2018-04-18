@@ -5,6 +5,7 @@
     <title>Login</title>
     <meta charset="utf-8">
     <link rel="stylesheet" media="all" href="stylesheets/style.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
 </head>
 
 <body>

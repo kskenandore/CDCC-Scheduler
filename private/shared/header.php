@@ -5,12 +5,13 @@
     <title><?php echo $page_title; ?></title>
     <meta charset="utf-8">
     <link rel="stylesheet" media="all" href="../stylesheets/style.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
 </head>
 
 <body>
 
 <header id="head">
-    <h1>CD & CC Scheduler</h1>
+    <h1>Scheduler</h1>
 </header>
 
 <nav>
