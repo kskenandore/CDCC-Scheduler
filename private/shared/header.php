@@ -9,7 +9,6 @@
 </head>
 
 <body>
-<div id="container">
 <header id="head">
     <h1>Scheduler</h1>
 </header>
