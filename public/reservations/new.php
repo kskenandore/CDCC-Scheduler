@@ -80,7 +80,7 @@
         </select><?php
           /* Determine if field is not filled */
           if ( $_POST['customer'] == "Select Customer" ) {
-            echo "* Customer Required";
+            echo "<span class='valid'>* Customer Required</span><br/>";
           }
 
         ?>
@@ -95,7 +95,7 @@
   			?>"/><?php
           /* Determine if field needed */
   				if ($_POST['date'] == NULL && !$firstpageload) {
-  					echo "* Date required";
+  					echo "<span class='valid'>* Date required</span><br/>";
   				}
          ?>
 
@@ -108,7 +108,7 @@
   			?>"/><?php
           /* Determine if field needed */
   				if ($_POST['start-time'] == NULL && !$firstpageload) {
-  					echo "* Start time required";
+  					echo "<span class='valid'>* Start time required</span><br/>";
   				}
          ?>
 
@@ -121,7 +121,7 @@
   			?>"/><?php
           /* Determine if field needed */
   				if ($_POST['end-time'] == NULL && !$firstpageload) {
-  					echo "* End time required";
+  					echo "<span class='valid'>* End time required</span><br/>";
   				}
          ?>
 
@@ -149,7 +149,7 @@
         </select><?php
           /* Determine if field is not filled */
           if ( $_POST['venue'] == "Select Venue" ) {
-            echo "* Venue Required";
+            echo "<span class='valid'>* Venue Required</span><br/>";
           }
 
         ?>
