@@ -27,7 +27,7 @@
             <label for="phone">Phone: </label>
             <input type="tel" name="phone"/>
 
-            <input type="submit" value="Create New Caterer"/>
+            <input type="submit" value="Create New Employee"/>
         </form>
 
         <a href="index.php" class="cancel-btn">&#8592; Cancel</a>

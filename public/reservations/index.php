@@ -19,7 +19,7 @@
             </tr>
             <?php
               // SQL to retrieve database records with formatted date result
-            	$sql = "SELECT a.reservation_id, concat(c.last_name, ', ', c.first_name  ) cname, v.name vname, DATE_FORMAT(`start_timestamp`, \"%c-%d-%Y\") rdate, DATE_FORMAT(`start_timestamp`, \"%l:%i %p\") rtime
+            	$sql = "SELECT a.reservation_id, concat(c.last_name, ', ', c.first_name  ) cname, v.name vname, DATE_FORMAT(`start_timestamp`, \"%c-%d-%Y\") rdate, DATE_FORMAT(`start_timestamp`, \"%l:%i %p\") rtime, cancellation
                       from reservations a
                       inner join customers c
                       on a.customer_id = c.customer_id
@@ -32,6 +32,9 @@
 
               // Loop through each row returned by datbase
               while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                  if ($row['cancellation'] == 1){
+                      continue;
+                  }
                 echo '<tr>';
                 echo '<td>' . $row['reservation_id'] . '</td>';
                 echo '<td>' . $row['cname'] . '</td>';
