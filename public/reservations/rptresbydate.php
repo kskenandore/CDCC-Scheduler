@@ -78,4 +78,4 @@
         <a href="rptresbydate.php" class="report">Reservations by Date</a>
     </div>
 
-<?php include('../../private/shared/footer.php'); ?>
+<?php //include('../../private/shared/footer.php'); ?>
