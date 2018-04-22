@@ -5,12 +5,12 @@
 
 <?php
 
-  /*	// For troubleshooting purposes
+ /*	// For troubleshooting purposes
   	print_r($_POST);
   	print_r($_GET);
   	echo "<br />";
-    */
-    
+ */
+
     // Create code friendly handles for select form data elements
     $first_name = $_POST['fname'];
     $last_name = $_POST['lname'];
@@ -21,6 +21,7 @@
     $zip = $_POST['zipcode'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
+    $org_id = $_POST['org'];
 
     // Test for update request from GET
     $updaterequest = !empty($_GET);
@@ -132,15 +133,15 @@
       				}
              ?>
 
-            <label for="state">State: </label>
-            <input type="text" name="state" value="<?php
-        				echo "$state";
-      			?>"/><?php
+            <label for="state">State: <?php
               /* Determine if field needed */
       				if ($_POST['state'] == NULL && !$firstpageload) {
-      					echo "* State Required";
+      					echo "* Required";
       				}
-             ?>
+             ?></label>
+            <input type="text" name="state" value="<?php
+        				echo "$state";
+      			?>"/>
 
             <label for="zipcode">Zipcode: </label>
             <input type="text" name="zipcode" value="<?php

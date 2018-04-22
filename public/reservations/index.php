@@ -53,7 +53,7 @@
         </table>
 
         <p id="report">Reporting Options:</p>
-        <a href="reporting.php" class="report">Reservations by Customers</a>
+        <a href="rptresbycust.php" class="report">Reservations by Customers</a>
         <a href="reporting.php" class="report">Reservations by Date</a>
     </div>
 
