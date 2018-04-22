@@ -14,7 +14,7 @@ function dividerColor() {
     else if (page == 'Venues') {
         divider.style.background = "rgb(255, 93, 91)";
     }
-    else if (page == 'Caterers') {
+    else if (page == 'Admin') {
         divider.style.background = "rgb(255, 170, 91)"
     }
 }

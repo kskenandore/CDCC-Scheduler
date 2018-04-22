@@ -1,10 +1,10 @@
 <?php require_once('../../private/initialize.php'); ?>
 
-<?php $page_title = 'Caterers'; ?>
+<?php $page_title = 'Admin'; ?>
 <?php include('../../private/shared/header.php'); ?>
 
     <div id="content" class="clear">
-        <h2>New Caterer</h2>
+        <h2>Edit Employee</h2>
         <form class="clear">
             <label for="name">Name: </label>
             <input type="text" name="name"/>
@@ -27,7 +27,7 @@
             <label for="phone">Phone: </label>
             <input type="tel" name="phone"/>
 
-            <input type="submit" value="Create New Caterer"/>
+            <input type="submit" value="Edit this Employee"/>
         </form>
 
         <a href="index.php" class="cancel-btn">&#8592; Cancel</a>

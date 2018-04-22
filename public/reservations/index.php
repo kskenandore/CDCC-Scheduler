@@ -6,7 +6,12 @@
     <div id="content" class="clear">
         <h2><?php echo $page_title; ?></h2>
         <a href="new.php" class="button">+ New</a>
-        <input type="search" placeholder="search..." name="search"/>
+
+        <form class="search">
+            <input type="text" placeholder=" search..." name="search"/>
+            <input type="submit" value="by Customer" class="button"/>
+            <input type="submit" value="by Venue" class="button"/>
+        </form>
 
         <table class="clear">
             <tr>
@@ -19,7 +24,7 @@
             </tr>
             <?php
               // SQL to retrieve database records with formatted date result
-            	$sql = "SELECT a.reservation_id, concat(c.last_name, ', ', c.first_name  ) cname, v.name vname, DATE_FORMAT(`start_timestamp`, \"%c-%d-%Y\") rdate, DATE_FORMAT(`start_timestamp`, \"%l:%i %p\") rtime
+            	$sql = "SELECT a.reservation_id, concat(c.last_name, ', ', c.first_name  ) cname, v.name vname, DATE_FORMAT(`start_timestamp`, \"%c-%d-%Y\") rdate, DATE_FORMAT(`start_timestamp`, \"%l:%i %p\") rtime, cancellation
                       from reservations a
                       inner join customers c
                       on a.customer_id = c.customer_id
@@ -32,6 +37,9 @@
 
               // Loop through each row returned by datbase
               while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                  if ($row['cancellation'] == 1){
+                      continue;
+                  }
                 echo '<tr>';
                 echo '<td>' . $row['reservation_id'] . '</td>';
                 echo '<td>' . $row['cname'] . '</td>';
@@ -41,19 +49,12 @@
                 echo '<td><a href="edit.php?id=' . $row['reservation_id'] . '" class="button">Edit</a> <a href="cancel.php?id=' . $row['reservation_id'] . '" class="button">Cancel</a></td>';
                 echo '</tr>';
               }
-
              ?>
-            <!-- Comment for future reference
-            <tr>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td><a href="edit.php" class="button">Edit</a> <a href="cancel.php" class="button">Cancel</a></td>
-            </tr>
-          -->
         </table>
+
+        <p id="report">Reporting Options:</p>
+        <a href="reporting.php" class="report">Reservations by Customers</a>
+        <a href="reporting.php" class="report">Reservations by Date</a>
     </div>
 
 <?php include('../../private/shared/footer.php'); ?>

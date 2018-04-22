@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+<div id="container">
 <header id="head">
     <h1>Scheduler</h1>
 </header>
@@ -20,7 +20,7 @@
         <li><a href="../customers/index.php" class="green">Customers</a></li>
         <li><a href="../orgs/index.php" class="purple">Organizations</a></li>
         <li><a href="../venues/index.php" class="red">Venues</a></li>
-        <li><a href="../caterers/index.php" class="orange">Caterers</a></li>
+        <li><a href="../admin/index.php" class="orange">User Admin</a></li>
     </ul>
     <div id="nav-divider" class="clear" onload="dividerColor()">
     </div>
