@@ -54,7 +54,7 @@
 
         <p id="report">Reporting Options:</p>
         <a href="rptresbycust.php" class="report">Reservations by Customers</a>
-        <a href="reporting.php" class="report">Reservations by Date</a>
+        <a href="rptresbydate.php" class="report">Reservations by Date</a>
     </div>
 
 <?php include('../../private/shared/footer.php'); ?>
