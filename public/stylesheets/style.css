@@ -270,3 +270,21 @@ footer p{
 hr{
     margin-bottom: 10px;
 }
+
+/****************
+ SEARCH STYLES
+*****************/
+
+form.search{
+    display: inline;
+    margin-left: 10px;
+}
+.search input[type=text]{
+    width: 150px;
+}
+.search input[type=submit]{
+    width: 100px;
+}
+.search input{
+    display: inline;
+}

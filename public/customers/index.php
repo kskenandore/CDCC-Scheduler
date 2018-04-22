@@ -6,7 +6,6 @@
     <div id="content" class="clear">
         <h2><?php echo $page_title; ?></h2>
         <a href="new.php" class="button">+ New</a>
-        <input type="search" placeholder="search..." name="search"/>
 
         <table class="clear">
             <tr>

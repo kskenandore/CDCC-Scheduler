@@ -6,7 +6,12 @@
     <div id="content" class="clear">
         <h2><?php echo $page_title; ?></h2>
         <a href="new.php" class="button">+ New</a>
-        <input type="search" placeholder="search..." name="search"/>
+
+        <form class="search">
+            <input type="text" placeholder=" search..." name="search"/>
+            <input type="submit" value="by Customer" class="button"/>
+            <input type="submit" value="by Venue" class="button"/>
+        </form>
 
         <table class="clear">
             <tr>
@@ -46,16 +51,6 @@
               }
 
              ?>
-            <!-- Comment for future reference
-            <tr>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td><a href="edit.php" class="button">Edit</a> <a href="cancel.php" class="button">Cancel</a></td>
-            </tr>
-          -->
         </table>
     </div>
 
