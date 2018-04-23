@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 
     //file paths
@@ -9,6 +10,16 @@
 
     require_once('functions.php');
 
-    include('shared/mysqli_connect.php'); 
+    include('shared/mysqli_connect.php');
+
+    // If no session value is present, redirect the user:
+    // Also validate the HTTP_USER_AGENT!
+    if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER_AGENT']) )) {
+
+    	// Need the functions:
+    	require ('login_functions.inc.php');
+    	redirect_user();
+
+    }
 
 ?>

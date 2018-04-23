@@ -9,6 +9,6 @@
 
     require_once('functions.php');
 
-    include('shared/mysqli_connect.php'); 
+    include('shared/mysqli_connect.php');
 
 ?>
