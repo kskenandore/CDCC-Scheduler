@@ -3,14 +3,42 @@
 <?php $page_title = 'Reservations'; ?>
 <?php include('../../private/shared/header.php'); ?>
 
+<?php
+/*	// For troubleshooting purposes
+  print_r($_POST);
+  print_r($_GET);
+  echo "<br />";
+  // */
+
+
+  // Create code friendly handles for select form data elements
+
+  if ( $_POST['search'] != NULL ) {
+
+    $searchstr = strtoupper($_POST['search']);
+
+    if ( $_GET['src'] == "V") {
+      $whereclause = ' where upper(v.name) like \'%' . $searchstr . '%\' ';
+    }
+
+    if ( $_GET['src'] == "C") {
+      $whereclause = ' where upper(c.last_name) like \'%' . $searchstr . '%\' OR ' .
+        'upper(c.first_name) like \'%' . $searchstr . '%\' ';
+    }
+
+
+  }
+
+ ?>
+
     <div id="content" class="clear">
         <h2><?php echo $page_title; ?></h2>
         <a href="new.php" class="button">+ New</a>
 
-        <form class="search">
+        <form class="search" method="post">
             <input type="text" placeholder=" search..." name="search"/>
-            <input type="submit" value="by Customer" class="button"/>
-            <input type="submit" value="by Venue" class="button"/>
+            <input type="submit" value="by Customer" formaction="index.php?src=C" class="button"/>
+            <input type="submit" value="by Venue" class="button" formaction="index.php?src=V"/>
         </form>
 
         <table class="clear">
@@ -30,7 +58,10 @@
                       on a.customer_id = c.customer_id
                       inner join venues v
                       on a.venue_id = v.venue_id
+                      $whereclause
                       order by a.reservation_id";
+
+              //echo $sql;
 
             	// Execute SQL and save result
             	$result = mysqli_query($dbc, $sql);
