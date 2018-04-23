@@ -19,9 +19,14 @@
         <li><a href="../customers/index.php" class="green">Customers</a></li>
         <li><a href="../orgs/index.php" class="purple">Organizations</a></li>
         <li><a href="../venues/index.php" class="red">Venues</a></li>
-        <li><a href="../admin/index.php" class="orange">User Admin</a></li>
+        <li><?php
+          if( $_SESSION['admin'] == 1 ) {
+          	echo '<a href="../admin/index.php" class="orange">User Admin</a>';
+          }
+        ?></li>
     </ul>
     <div id="nav-divider" class="clear" onload="dividerColor()">
     </div>
 </nav>
+<a href="../../private/shared/logout.php" style="float:right" class="cancel-btn">&#8592; Logout</a>
 <script src="../scripts/scripts.js"></script>

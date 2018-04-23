@@ -10,7 +10,7 @@
 	echo "<br />";
  */
 
- 
+
   /* Set logic handling variables named to improve readability */
 	$fieldsfilled = false;
 	$firstpageload = empty($_POST);
@@ -141,8 +141,9 @@
       				}
              ?>
 
-            <label for="phone">Phone: </label>
-            <input type="tel" name="phone" value="<?php
+            <label for="phone">Phone: (xxx-xxx-xxxx)</label>
+            <input type="tel" name="phone" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              placeholder="123-4567-8901" value="<?php
               /* Determine if date to keep exists */
         			if ($_POST['phone'] != NULL) {
         				echo "$phone";
