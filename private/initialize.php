@@ -28,9 +28,9 @@ session_start(); // Start the session.
       header("Location: http://groupfour.uwmsois.com/cdcc-scheduler/public/index.php");
       exit(); // Quit the script.
 
-    	redirect_user('/home/groupfour/public_html/cdcc-scheduler/public/index.php');
-
     }
+
+    //echo 'session ' . $_SESSION['admin'] . ' dir ' . basename(dirname((__FILE__)));
 
     require_once('functions.php');
 

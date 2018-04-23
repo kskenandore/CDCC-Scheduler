@@ -1,5 +1,7 @@
 <?php require_once('../../private/initialize.php'); ?>
 
+<?php include('adminsecurity.php'); ?>
+
 <?php $page_title = 'Admin'; ?>
 <?php include('../../private/shared/header.php'); ?>
 
