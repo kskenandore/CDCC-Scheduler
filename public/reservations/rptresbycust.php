@@ -37,7 +37,7 @@
                 LEFT OUTER JOIN
                 	organizations d
                 	on a.org_id = d.org_id
-                ORDER BY a.customer_id, a.last_name, b.start_timestamp";
+                ORDER BY  a.last_name, a.customer_id, b.start_timestamp";
 
             	// Execute SQL and save result
             	$result = mysqli_query($dbc, $sql);
