@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } // End of the main submit conditional.
 
 ?>
-<?php require_once('../private/initialize.php'); ?>
+<?php //require_once('../private/initialize.php'); ?>
 
 <?php $page_title = 'Log in'; ?>
 <?php include('../private/shared/login_header.php'); ?>

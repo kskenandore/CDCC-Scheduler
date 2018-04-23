@@ -24,4 +24,5 @@
     <div id="nav-divider" class="clear" onload="dividerColor()">
     </div>
 </nav>
+<a href="../../private/shared/logout.php" style="float:right" class="cancel-btn">&#8592; Logout</a>
 <script src="../scripts/scripts.js"></script>
