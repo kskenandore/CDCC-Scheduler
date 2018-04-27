@@ -158,26 +158,6 @@
           ?>
         </select><br/>
 
-        <!-- Comment
-        <label for="caterer">Caterer: </label>
-        <select name="caterer">
-            <option>Caterer 1</option>
-            <option>Caterer 2</option>
-            <option>Caterer 3</option>
-        </select><br/>
-
-        <label for="menu">Menu Options: </label>
-        <select name="menu">
-            <option>Menu 1</option>
-            <option>Menu 2</option>
-            <option>Menu 3</option>
-        </select>
-
-        <label for="contract">Contract: </label>
-        <input type="file" name="contract" size="50"/>
-
-      -->
-
         <input type="submit" value="Edit this Reservation"/>
     </form>
 
