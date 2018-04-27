@@ -108,7 +108,7 @@
   			?>"/><?php
           /* Determine if field needed */
   				if ($_POST['date'] == NULL && !$firstpageload) {
-  					echo "* Date required";
+  					echo "<span class='valid'>* Date required</span>";
   				}
          ?>
 
@@ -121,7 +121,7 @@
   			?>"/><?php
           /* Determine if field needed */
   				if ($_POST['start-time'] == NULL && !$firstpageload) {
-  					echo "* Start Time Required";
+  					echo "<span class='valid'>* Start Time Required</span>";
   				}
          ?>
 
@@ -134,7 +134,7 @@
   			?>"/><?php
           /* Determine if field needed */
   				if ($_POST['end-time'] == NULL && !$firstpageload) {
-  					echo "* End Time Required";
+  					echo "<span class='valid'>* End Time Required</span>";
   				}
          ?>
 
