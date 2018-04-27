@@ -119,7 +119,7 @@
             </select><?php
               /* Determine if field is not filled */
               if ( $_POST['cancel-reason'] == "Select Reason" ) {
-                echo "* Reason Required";
+                echo "<span class='valid'>* Reason Required</span>";
               }
             ?>
 
