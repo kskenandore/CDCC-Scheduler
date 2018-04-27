@@ -3,6 +3,8 @@
 <?php $page_title = 'Customers'; ?>
 <?php include('../../private/shared/header.php'); ?>
 
+<!-- HTML for ouput in columnar format  -->
+
     <div id="content" class="clear">
         <h2>Delete Customer</h2>
 

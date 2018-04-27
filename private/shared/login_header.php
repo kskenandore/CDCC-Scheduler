@@ -1,5 +1,5 @@
 <!doctype html>
-
+<!-- HTML for login headers -->
 <html lang="en">
 <head>
     <title>Login</title>
@@ -17,4 +17,3 @@
 <div id="divider">
     <h2>Employee Login</h2>
 </div>
-

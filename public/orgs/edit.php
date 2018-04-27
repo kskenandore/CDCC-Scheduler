@@ -3,6 +3,8 @@
 <?php $page_title = 'Organizations'; ?>
 <?php include('../../private/shared/header.php'); ?>
 
+<!-- HTML for form and fields  -->
+
     <div id="content" class="clear">
         <h2>Edit Organization</h2>
         <form class="clear">

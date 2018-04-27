@@ -38,16 +38,7 @@
               }
 
              ?>
-            <!-- Comment out for future referenc
-            <tr>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td><a href="edit.php" class="button">Edit</a> <a href="delete.php" class="button">Delete</a></td>
-            </tr>
-            -->
+
         </table>
     </div>
 

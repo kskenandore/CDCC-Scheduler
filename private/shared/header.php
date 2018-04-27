@@ -1,5 +1,6 @@
 <!doctype html>
-
+<!-- HTML for page headers -->
+<!-- HTML body closed by footer.php  -->
 <html lang="en">
 <head>
     <title><?php echo $page_title; ?></title>
@@ -13,6 +14,7 @@
     <h1>Scheduler</h1>
 </header>
 
+<!-- HTML for tabbed navigation  -->
 <nav>
     <ul>
         <li><a href="../reservations/index.php" class="blue">Reservations</a></li>

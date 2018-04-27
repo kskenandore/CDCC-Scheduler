@@ -5,6 +5,8 @@
 <?php $page_title = 'Admin'; ?>
 <?php include('../../private/shared/header.php'); ?>
 
+<!-- HTML for form and fields  -->
+
     <div id="content" class="clear">
         <h2>New Employee</h2>
         <form class="clear">
