@@ -1,0 +1,66 @@
+root
+|   
++---private
+|   |   functions.php
+|   |   initialize.php
+|   |   
+|   \---shared
+|           footer.php
+|           header.php
+|           login_functions.inc.php
+|           login_header.php
+|           logout.php
+|           mysqli_connect.php
+|           
+\---public
+    |   index.php
+    |   
+    +---admin
+    |       adminsecurity.php
+    |       delete.php
+    |       edit.php
+    |       index.php
+    |       new.php
+    |       
+    +---customers
+    |       delete.php
+    |       edit.php
+    |       edithandle.php
+    |       index.php
+    |       new.php
+    |       newhandle.php
+    |       
+    +---images
+    |       CDCC-icon.png
+    |       CDCC-logo.png
+    |       favicon.ico
+    |       
+    +---orgs
+    |       delete.php
+    |       edit.php
+    |       index.php
+    |       new.php
+    |       
+    +---reservations
+    |       cancel.php
+    |       cancelhandle.php
+    |       edit.php
+    |       edithandle.php
+    |       index.php
+    |       new.php
+    |       newhandle.php
+    |       rptresbycust.php
+    |       rptresbydate.php
+    |       
+    +---scripts
+    |       scripts.js
+    |       
+    +---stylesheets
+    |       style.css
+    |       
+    \---venues
+            delete.php
+            edit.php
+            index.php
+            new.php
+            

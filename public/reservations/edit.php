@@ -108,7 +108,7 @@
   			?>"/><?php
           /* Determine if field needed */
   				if ($_POST['date'] == NULL && !$firstpageload) {
-  					echo "* Date required";
+  					echo "<span class='valid'>* Date required</span>";
   				}
          ?>
 
@@ -121,7 +121,7 @@
   			?>"/><?php
           /* Determine if field needed */
   				if ($_POST['start-time'] == NULL && !$firstpageload) {
-  					echo "* Start Time Required";
+  					echo "<span class='valid'>* Start Time Required</span>";
   				}
          ?>
 
@@ -134,7 +134,7 @@
   			?>"/><?php
           /* Determine if field needed */
   				if ($_POST['end-time'] == NULL && !$firstpageload) {
-  					echo "* End Time Required";
+  					echo "<span class='valid'>* End Time Required</span>";
   				}
          ?>
 
@@ -157,26 +157,6 @@
             }
           ?>
         </select><br/>
-
-        <!-- Comment
-        <label for="caterer">Caterer: </label>
-        <select name="caterer">
-            <option>Caterer 1</option>
-            <option>Caterer 2</option>
-            <option>Caterer 3</option>
-        </select><br/>
-
-        <label for="menu">Menu Options: </label>
-        <select name="menu">
-            <option>Menu 1</option>
-            <option>Menu 2</option>
-            <option>Menu 3</option>
-        </select>
-
-        <label for="contract">Contract: </label>
-        <input type="file" name="contract" size="50"/>
-
-      -->
 
         <input type="submit" value="Edit this Reservation"/>
     </form>

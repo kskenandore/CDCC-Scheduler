@@ -32,22 +32,13 @@
                 echo '<td>' . $row['first_name'] . '</td>';
                 echo '<td>' . $row['email'] . '</td>';
                 echo '<td>' . $row['phone'] . '</td>';
-                echo '<td><a href="edit.php?id=' . $row['customer_id'] . '" class="button">Edit</a> </td>';
-                //echo '<td><a href="edit.php" class="button">Edit</a> <a href="cancel.php" class="button">Cancel</a></td>';
+                echo '<td><a href="edit.php?id=' . $row['customer_id'] . '" class="button">Edit</a> ';
+                echo '<a href="delete.php?id=' . $row['customer_id'] . '" class="button">Delete</a></td>';
                 echo '</tr>';
               }
 
              ?>
-            <!-- Comment out for future referenc
-            <tr>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td>Example Data</td>
-                <td><a href="edit.php" class="button">Edit</a> <a href="delete.php" class="button">Delete</a></td>
-            </tr>
-            -->
+
         </table>
     </div>
 

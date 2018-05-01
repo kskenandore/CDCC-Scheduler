@@ -5,6 +5,8 @@
 <?php $page_title = 'Admin'; ?>
 <?php include('../../private/shared/header.php'); ?>
 
+<!-- HTML for columnar output format  -->
+
     <div id="content" class="clear">
         <h2>Delete Employee</h2>
 

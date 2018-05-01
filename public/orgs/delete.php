@@ -3,6 +3,8 @@
 <?php $page_title = 'Organizations'; ?>
 <?php include('../../private/shared/header.php'); ?>
 
+<!-- HTML for output in columnar format  -->
+
     <div id="content" class="clear">
         <h2>Delete Organization</h2>
 

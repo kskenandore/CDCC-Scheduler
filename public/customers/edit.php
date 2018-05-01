@@ -94,7 +94,7 @@
       			?>"/><?php
               /* Determine if field needed */
       				if ($_POST['fname'] == NULL && !$firstpageload) {
-      					echo "* First Name Required";
+      					echo "<span class='valid'>* First Name Required</span>";
       				}
              ?>
 
@@ -104,7 +104,7 @@
       			?>"/><?php
               /* Determine if field needed */
       				if ($_POST['lname'] == NULL && !$firstpageload) {
-      					echo "* Last Name Required";
+      					echo "<span class='valid'>* Last Name Required</span>";
       				}
              ?>
 
@@ -114,7 +114,7 @@
       			?>"/><?php
               /* Determine if field needed */
       				if ($_POST['address1'] == NULL && !$firstpageload) {
-      					echo "* Address 1 Required";
+      					echo "<span class='valid'>* Address 1 Required</span>";
       				}
              ?>
 
@@ -129,14 +129,14 @@
       			?>"/><?php
               /* Determine if field needed */
       				if ($_POST['city'] == NULL && !$firstpageload) {
-      					echo "* City Required";
+      					echo "<span class='valid'>* City Required</span>";
       				}
              ?>
 
             <label for="state">State: <?php
               /* Determine if field needed */
       				if ($_POST['state'] == NULL && !$firstpageload) {
-      					echo "* Required";
+      					echo "<span class='valid'>* State Required</span>";
       				}
              ?></label>
             <input type="text" name="state" value="<?php
@@ -149,7 +149,7 @@
       			?>"/><?php
               /* Determine if field needed */
       				if ($_POST['zipcode'] == NULL && !$firstpageload) {
-      					echo "* Zipcode Required";
+      					echo "<span class='valid'>* Zipcode Required</span>";
       				}
              ?>
 
@@ -160,7 +160,7 @@
       			?>"/><?php
               /* Determine if field needed */
       				if ($_POST['phone'] == NULL && !$firstpageload) {
-      					echo "* Phone Required";
+      					echo "<span class='valid'>* Phone Required</span>";
       				}
              ?>
 
@@ -170,7 +170,7 @@
       			?>"/><?php
               /* Determine if field needed */
       				if ($_POST['email'] == NULL && !$firstpageload) {
-      					echo "* Email Required";
+      					echo "<span class='valid'>* Email Required</span>";
       				}
              ?>
 

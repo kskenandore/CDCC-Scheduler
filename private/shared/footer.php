@@ -1,3 +1,4 @@
+<!-- Footer HTML to complete page and display team info  -->
 <footer>
     <hr/>
     <p>INFOST 490 Capstone Project</p>
